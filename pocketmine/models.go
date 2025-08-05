@@ -339,7 +339,7 @@ func int32ToRGBA(x int32) Colour {
 }
 
 type BiomeDefinition struct {
-	BiomeID uint16 `json:"id,omitempty"`
+	BiomeID int16 `json:"id,omitempty"`
 
 	Temperature      float32 `json:"temperature"`
 	Downfall         float32 `json:"downfall"`
@@ -357,10 +357,6 @@ type BiomeDefinition struct {
 }
 
 func newBiomeDefinition(definition protocol.BiomeDefinition, list []string) BiomeDefinition {
-	var biomeID uint16
-	if v, ok := definition.BiomeID.Value(); ok {
-		biomeID = v
-	}
 	var tags []string
 	if v, ok := definition.Tags.Value(); ok {
 		tags = lo.Map(v, func(i uint16, _ int) string {
@@ -368,7 +364,7 @@ func newBiomeDefinition(definition protocol.BiomeDefinition, list []string) Biom
 		})
 	}
 	return BiomeDefinition{
-		BiomeID:          biomeID,
+		BiomeID:          definition.BiomeID,
 		Temperature:      definition.Temperature,
 		Downfall:         definition.Downfall,
 		RedSporeDensity:  definition.RedSporeDensity,
