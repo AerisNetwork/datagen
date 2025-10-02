@@ -3,7 +3,7 @@ module github.com/df-mc/datagen
 go 1.24.1
 
 require (
-	github.com/df-mc/dragonfly v0.10.4
+	github.com/df-mc/dragonfly v0.10.7
 	github.com/samber/lo v1.50.0
 	github.com/sandertv/gophertunnel v1.50.0
 	golang.org/x/oauth2 v0.30.0
