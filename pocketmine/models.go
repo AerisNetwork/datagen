@@ -339,14 +339,11 @@ func int32ToRGBA(x int32) Colour {
 }
 
 type BiomeDefinition struct {
-	BiomeID uint16 `json:"id,omitempty"`
+	BiomeID int16 `json:"id,omitempty"`
 
-	Temperature      float32 `json:"temperature"`
-	Downfall         float32 `json:"downfall"`
-	RedSporeDensity  float32 `json:"redSporeDensity"`
-	BlueSporeDensity float32 `json:"blueSporeDensity"`
-	AshDensity       float32 `json:"ashDensity"`
-	WhiteAshDensity  float32 `json:"whiteAshDensity"`
+	Temperature float32 `json:"temperature"`
+	Downfall    float32 `json:"downfall"`
+	FoliageSnow float32 `json:"foliageSnow"`
 
 	Depth          float32 `json:"depth"`
 	Scale          float32 `json:"scale"`
@@ -357,10 +354,6 @@ type BiomeDefinition struct {
 }
 
 func newBiomeDefinition(definition protocol.BiomeDefinition, list []string) BiomeDefinition {
-	var biomeID uint16
-	if v, ok := definition.BiomeID.Value(); ok {
-		biomeID = v
-	}
 	var tags []string
 	if v, ok := definition.Tags.Value(); ok {
 		tags = lo.Map(v, func(i uint16, _ int) string {
@@ -368,17 +361,14 @@ func newBiomeDefinition(definition protocol.BiomeDefinition, list []string) Biom
 		})
 	}
 	return BiomeDefinition{
-		BiomeID:          biomeID,
-		Temperature:      definition.Temperature,
-		Downfall:         definition.Downfall,
-		RedSporeDensity:  definition.RedSporeDensity,
-		BlueSporeDensity: definition.BlueSporeDensity,
-		AshDensity:       definition.AshDensity,
-		WhiteAshDensity:  definition.WhiteAshDensity,
-		Depth:            definition.Depth,
-		Scale:            definition.Scale,
-		MapWaterColour:   int32ToRGBA(definition.MapWaterColour),
-		Rain:             definition.Rain,
-		Tags:             tags,
+		BiomeID:        definition.BiomeID,
+		Temperature:    definition.Temperature,
+		Downfall:       definition.Downfall,
+		FoliageSnow:    definition.FoliageSnow,
+		Depth:          definition.Depth,
+		Scale:          definition.Scale,
+		MapWaterColour: int32ToRGBA(definition.MapWaterColour),
+		Rain:           definition.Rain,
+		Tags:           tags,
 	}
 }
