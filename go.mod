@@ -3,9 +3,9 @@ module github.com/df-mc/datagen
 go 1.24.1
 
 require (
-	github.com/df-mc/dragonfly v0.10.7
+	github.com/df-mc/dragonfly v0.10.9
 	github.com/samber/lo v1.50.0
-	github.com/sandertv/gophertunnel v1.50.0
+	github.com/sandertv/gophertunnel v1.51.0
 	golang.org/x/oauth2 v0.30.0
 )
 
@@ -18,7 +18,7 @@ require (
 	github.com/go-jose/go-jose/v4 v4.1.0 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/klauspost/compress v1.18.0 // indirect
+	github.com/klauspost/compress v1.18.1 // indirect
 	github.com/sandertv/go-raknet v1.14.3-0.20250305181847-6af3e95113d6 // indirect
 	github.com/segmentio/fasthash v1.0.3 // indirect
 	golang.org/x/net v0.40.0 // indirect
